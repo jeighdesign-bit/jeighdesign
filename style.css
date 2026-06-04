@@ -1429,9 +1429,9 @@ button, input, textarea {
 
 .experience-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 28px 0;
   border-bottom: 1px solid var(--color-outline-variant);
   transition: padding-left var(--transition-fast);
 }
@@ -1441,27 +1441,78 @@ button, input, textarea {
 }
 
 .experience-item:hover {
-  padding-left: 8px;
+  padding-left: 12px;
+}
+
+.exp-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
 }
 
 .exp-role {
   font-family: var(--font-headline);
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: 700;
+  font-size: 1.15rem;
   color: var(--color-on-surface);
 }
 
 .exp-company {
-  color: var(--color-on-surface-variant);
-  font-size: 1rem;
-  margin-left: 24px;
+  color: var(--color-primary);
+  font-family: var(--font-headline);
+  font-weight: 600;
+  font-size: 1.05rem;
   flex-grow: 1;
 }
 
 .exp-date {
   color: var(--color-outline);
   font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.exp-location {
+  font-size: 0.8rem;
+  color: var(--color-outline);
+  margin-top: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.exp-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-on-surface-variant);
+  margin-top: 12px;
+  opacity: 0.9;
+}
+
+.about-skills {
+  margin-top: 48px;
+  padding: 24px 0 0 0;
+  border-top: 1px solid var(--color-outline-variant);
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.skills-label {
+  font-family: var(--font-label);
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--color-on-surface);
+  letter-spacing: 1.5px;
+  min-width: 80px;
+}
+
+.skills-value {
+  font-family: var(--font-body);
   font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--color-on-surface-variant);
 }
 
 @media (max-width: 991px) {
@@ -1482,14 +1533,15 @@ button, input, textarea {
     padding-left: 20px;
   }
   
-  .experience-item {
+  .exp-header-row {
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 4px 12px;
   }
   
-  .exp-company {
-    margin-left: 0;
-    width: 100%;
+  .about-skills {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 }
 
