@@ -223,6 +223,7 @@ button, input, textarea {
   pointer-events: none;
   opacity: 0.65;
   transition: transform var(--transition-slow) ease-out;
+  will-change: transform;
 }
 
 .blob-primary {
@@ -700,6 +701,7 @@ button, input, textarea {
   transition: transform var(--transition-slow) ease-out, box-shadow var(--transition-medium);
   transform: perspective(1000px) rotateX(10deg) scale(0.95);
   position: relative;
+  will-change: transform;
 }
 
 .hero-mockup-container.visible {
@@ -863,6 +865,7 @@ button, input, textarea {
   aspect-ratio: 4/5;
   transition: transform var(--transition-medium), box-shadow var(--transition-medium);
   cursor: pointer;
+  will-change: transform, box-shadow;
 }
 
 @media (min-width: 768px) {

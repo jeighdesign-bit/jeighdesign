@@ -180,6 +180,83 @@
     .lightbox-next {
       right: -60px;
     }
+
+    /* Presentation mode extensions */
+    .lightbox-counter {
+      color: rgba(255, 255, 255, 0.7);
+      font-family: var(--font-label);
+      font-size: 14px;
+      margin-bottom: 12px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 4px 12px;
+      border-radius: var(--rounded-full);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: none;
+    }
+
+    .lightbox-thumbnails-wrapper {
+      width: 100%;
+      max-width: 600px;
+      margin-top: 16px;
+      overflow-x: auto;
+      padding: 4px;
+      display: none; /* Hidden by default, shown for presentations */
+    }
+
+    .lightbox.is-presentation .lightbox-counter {
+      display: inline-block;
+    }
+
+    .lightbox.is-presentation .lightbox-thumbnails-wrapper {
+      display: block;
+    }
+
+    .lightbox.is-presentation .lightbox-img {
+      max-height: 60vh; /* Make image slightly smaller to fit thumbnails */
+    }
+
+    .lightbox-thumbnails {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      padding-bottom: 8px;
+    }
+
+    /* Scrollbar for thumbnails */
+    .lightbox-thumbnails-wrapper::-webkit-scrollbar {
+      height: 6px;
+    }
+    .lightbox-thumbnails-wrapper::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: var(--rounded-full);
+    }
+    .lightbox-thumbnails-wrapper::-webkit-scrollbar-thumb:hover {
+      background: var(--color-primary);
+    }
+
+    .lightbox-thumb {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: var(--rounded-sm);
+      cursor: pointer;
+      border: 2px solid transparent;
+      opacity: 0.5;
+      transition: all var(--transition-fast);
+      flex-shrink: 0;
+    }
+
+    .lightbox-thumb:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+
+    .lightbox-thumb.active {
+      opacity: 1;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 10px var(--color-primary);
+      transform: scale(1.05);
+    }
     
     @media (max-width: 768px) {
       .lightbox-nav {
@@ -259,7 +336,7 @@
     <!-- Header/Introduction -->
     <div class="section-header reveal">
       <p class="label-caps section-tag">Complete Gallery</p>
-      <h1 class="display-lg" style="margin-bottom: 16px;">Garment Collections</h1>
+      <h1 class="display-lg" style="margin-bottom: 16px;">Collection of the works</h1>
       <p class="body-lg" style="max-width: 600px; margin: 0 auto;">
         Browse the complete catalog of sublimated designs, sportswear, and technical mockups organized by apparel category.
       </p>
@@ -281,6 +358,9 @@
       <button class="filter-btn" data-filter="singlet-running">Running Singlets</button>
       <button class="filter-btn" data-filter="tshirt">T-Shirts</button>
       <button class="filter-btn" data-filter="varsity-jacket">Varsity Jackets</button>
+      <button class="filter-btn" data-filter="brand-identity">Brand Identity</button>
+      <button class="filter-btn" data-filter="esports-branding">Esports Branding</button>
+      <button class="filter-btn" data-filter="posters">Posters</button>
     </div>
 
     <!-- Dynamic Bento/Grid -->
@@ -310,9 +390,17 @@
     </button>
     
     <div class="lightbox-content">
+      <!-- Slide Counter -->
+      <div class="lightbox-counter" id="lightbox-counter">1 / 9</div>
+      
       <img src="" alt="" class="lightbox-img" id="lightbox-img">
       <div class="lightbox-caption" id="lightbox-caption">Project Title</div>
       <div class="lightbox-category" id="lightbox-category">Category</div>
+      
+      <!-- Slide Thumbnails Wrapper -->
+      <div class="lightbox-thumbnails-wrapper" id="lightbox-thumbnails-wrapper">
+        <div class="lightbox-thumbnails" id="lightbox-thumbnails"></div>
+      </div>
     </div>
     
     <button class="lightbox-nav lightbox-next" id="lightbox-next-btn" aria-label="Next image">

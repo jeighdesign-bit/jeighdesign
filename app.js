@@ -51,32 +51,42 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Scroll Effects: Nav Shrink & Active Items ---
+  let isScrolled = false;
   window.addEventListener('scroll', () => {
-    // Nav shrink
-    if (window.scrollY > 50) {
-      mainNav.classList.add('scrolled');
-    } else {
-      mainNav.classList.remove('scrolled');
+    const scrolled = window.scrollY > 50;
+    if (scrolled !== isScrolled) {
+      isScrolled = scrolled;
+      if (isScrolled) {
+        mainNav.classList.add('scrolled');
+      } else {
+        mainNav.classList.remove('scrolled');
+      }
     }
+  }, { passive: true });
 
-    // Active link highlighting
-    let currentActiveId = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      const sectionHeight = section.offsetHeight;
-      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-        currentActiveId = section.getAttribute('id');
+  // Active link highlighting using IntersectionObserver (highly performant)
+  const observerOptions = {
+    root: null,
+    rootMargin: '-120px 0px -40% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
       }
     });
+  }, observerOptions);
 
-    if (currentActiveId) {
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentActiveId}`) {
-          link.classList.add('active');
-        }
-      });
-    }
+  sections.forEach(section => {
+    observer.observe(section);
   });
 
   // --- Mobile Drawer Menu ---
@@ -194,25 +204,35 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Mouse-Guided Background Parallax Blobs ---
+  let mouseX = 0, mouseY = 0;
+  let ticking = false;
+
   window.addEventListener('mousemove', (e) => {
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 
-    // Calculate displacement offset ratios (-0.5 to 0.5)
-    const offsetX = (mouseX / windowWidth) - 0.5;
-    const offsetY = (mouseY / windowHeight) - 0.5;
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
 
-    // Apply movement with dampening
-    if (blob1) {
-      blob1.style.transform = `translate(${offsetX * 60}px, ${offsetY * 60}px) translateX(-50%)`;
-    }
-    if (blob2) {
-      blob2.style.transform = `translate(${offsetX * -40}px, ${offsetY * -40}px)`;
-    }
-    if (blob3) {
-      blob3.style.transform = `translate(${offsetX * 30}px, ${offsetY * -30}px)`;
+        // Calculate displacement offset ratios (-0.5 to 0.5)
+        const offsetX = (mouseX / windowWidth) - 0.5;
+        const offsetY = (mouseY / windowHeight) - 0.5;
+
+        // Apply movement with dampening
+        if (blob1) {
+          blob1.style.transform = `translate(${offsetX * 60}px, ${offsetY * 60}px) translateX(-50%)`;
+        }
+        if (blob2) {
+          blob2.style.transform = `translate(${offsetX * -40}px, ${offsetY * -40}px)`;
+        }
+        if (blob3) {
+          blob3.style.transform = `translate(${offsetX * 30}px, ${offsetY * -30}px)`;
+        }
+        ticking = false;
+      });
+      ticking = true;
     }
   });
 
