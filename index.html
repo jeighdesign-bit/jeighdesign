@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Jeigh Design | Precision Sublimation Portfolio</title>
+  <meta name="description" content="Technical, print-ready sublimation designs and apparel templates. High-fidelity creative portfolio bridging SaaS precision with digital apparel craftsmanship.">
+  <meta name="keywords" content="sublimation, apparel design, Adobe Illustrator, Photoshop mockups, vector templates, sports jersey design">
+  <meta name="author" content="Jeigh Design">
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Jeigh Design | Precision Sublimation Portfolio">
+  <meta property="og:description" content="Mastering vector templates and 3D mockups. Technical, print-ready files tailored for high-end sportswear and creative apparel.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jeighdesign.com">
+  <meta property="og:image" content="assets/hero-mockup.png">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Material Symbols Outlined -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Floating Navigation Wrapper -->
+  <div class="navbar-wrapper">
+    <nav class="navbar glass-container" id="main-nav">
+      <!-- Logo -->
+      <a href="#" class="logo" id="nav-logo">
+        <img src="assets/logo.png" alt="Jeigh Design" class="logo-img">
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="nav-links" id="desktop-links">
+        <a href="#about" class="nav-item active" id="link-about">About</a>
+        <a href="works.html" class="nav-item" id="link-works">Works</a>
+        <a href="#process" class="nav-item" id="link-process">Process</a>
+        <a href="#contact" class="nav-item" id="link-contact">Contact</a>
+      </div>
+
+      <!-- Actions (Theme Toggle & Contact CTA) -->
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle light/dark theme">
+          <span class="material-symbols-outlined moon-icon">dark_mode</span>
+          <span class="material-symbols-outlined sun-icon">light_mode</span>
+        </button>
+
+        <!-- Nav CTA -->
+        <a href="#contact" class="nav-btn nav-btn-primary" id="nav-cta-btn">Let's Connect</a>
+
+        <!-- Mobile Drawer Toggle -->
+        <button class="mobile-toggle" id="mobile-menu-btn" aria-label="Toggle mobile navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer glass-container" id="mobile-drawer">
+    <a href="#about" id="mobile-link-about">About</a>
+    <a href="works.html" id="mobile-link-works">Works</a>
+    <a href="#process" id="mobile-link-process">Process</a>
+    <a href="#contact" id="mobile-link-contact">Contact</a>
+    <a href="#contact" class="mobile-drawer-btn" id="mobile-drawer-cta">Discuss Project</a>
+  </div>
+
+  <!-- Background Blobs -->
+  <div class="bg-blob blob-primary" id="blob-1"></div>
+  <div class="bg-blob blob-secondary" id="blob-2"></div>
+  <div class="bg-blob blob-tertiary" id="blob-3"></div>
+
+  <!-- Main Content -->
+  <main>
+    
+    <!-- Hero Section -->
+    <section class="hero container" id="about">
+      <div class="reveal">
+        <div class="badge">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">design_services</span>
+          <span class="label-caps">Precision Sublimation Expert</span>
+        </div>
+      </div>
+      
+      <h1 class="display-lg hero-title reveal reveal-delay-1">
+        Enhance your apparel with <span class="text-gradient">precision</span> design.
+      </h1>
+      
+      <p class="body-lg hero-subtitle reveal reveal-delay-2">
+        Streamline your production pipeline with print-ready sublimation vector files. Combining the technical accuracy of Adobe Illustrator with photorealistic Photoshop mockups to bring concepts into reality.
+      </p>
+      
+      <div class="hero-actions reveal reveal-delay-3">
+        <a href="works.html" class="btn btn-primary" id="hero-btn-works">
+          View All Works
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+        <a href="#contact" class="btn btn-secondary" id="hero-btn-discuss">Discuss Project</a>
+      </div>
+
+      <!-- Floating Glassmorphic Mockup Container with Slideshow -->
+      <div class="hero-mockup-container reveal reveal-delay-3" id="mockup-frame">
+        <div class="hero-slideshow">
+          <img src="New%20folder/JERSEY%20BASKETBALL/SUPER%20ROOKIES%20CLUB%20copy.jpeg" class="slide active" alt="Featured basketball jersey design" loading="eager">
+          <img src="New%20folder/LONG%20SLEEVES/HONDA%20copy.jpeg" class="slide" alt="Featured racing long sleeve design" loading="lazy">
+          <img src="New%20folder/POLO%20SHIRT/japan%20copy.jpeg" class="slide" alt="Featured Tokyo dragon polo shirt design" loading="lazy">
+          <img src="New%20folder/TSHIRT/japan%20tshirt%20copy.jpeg" class="slide" alt="Featured Ukiyo-e wave custom graphic tee design" loading="lazy">
+        </div>
+        <!-- Miniature Thumbnail Indicator Navigation -->
+        <div class="hero-thumbnails">
+          <button class="thumb active" data-slide="0" style="background-image: url('New%20folder/JERSEY%20BASKETBALL/SUPER%20ROOKIES%20CLUB%20copy.jpeg');" aria-label="Show basketball jersey mockup"></button>
+          <button class="thumb" data-slide="1" style="background-image: url('New%20folder/LONG%20SLEEVES/HONDA%20copy.jpeg');" aria-label="Show long sleeve mockup"></button>
+          <button class="thumb" data-slide="2" style="background-image: url('New%20folder/POLO%20SHIRT/japan%20copy.jpeg');" aria-label="Show polo shirt mockup"></button>
+          <button class="thumb" data-slide="3" style="background-image: url('New%20folder/TSHIRT/japan%20tshirt%20copy.jpeg');" aria-label="Show custom tee mockup"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Works / Bento Grid Section -->
+    <section class="section-padding container" id="works">
+      <div class="section-header reveal">
+        <p class="label-caps section-tag">Selected Portfolio</p>
+        <h2 class="headline-lg">Digital Craftsmanship</h2>
+      </div>
+
+      <!-- Filtering Tabs -->
+      <div class="gallery-filters reveal">
+        <button class="filter-btn active" data-filter="all" id="filter-all">All Projects</button>
+        <button class="filter-btn" data-filter="apparel" id="filter-apparel">Sportswear</button>
+        <button class="filter-btn" data-filter="pattern" id="filter-pattern">Sublimation Prints</button>
+      </div>
+
+      <!-- Bento Grid -->
+      <div class="bento-grid">
+        
+        <!-- Card 1 (Super Rookies Club - Large Card) -->
+        <div class="gallery-card bento-colspan-2 reveal" data-category="apparel">
+          <img src="New%20folder/JERSEY%20BASKETBALL/SUPER%20ROOKIES%20CLUB%20copy.jpeg" alt="Super Rookies Club Basketball Jersey Design" loading="lazy">
+          <div class="card-overlay">
+            <div class="card-overlay-content">
+              <div class="card-tags">
+                <span class="card-tag label-caps">Vector Art</span>
+                <span class="card-tag label-caps">Illustrator</span>
+                <span class="card-tag label-caps">Basketball</span>
+              </div>
+              <h3 class="headline-md card-title">Super Rookies Club Jersey</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 (Honda Track Sleeve) -->
+        <div class="gallery-card reveal" data-category="apparel">
+          <img src="New%20folder/LONG%20SLEEVES/HONDA%20copy.jpeg" alt="Honda Racing sublimated long sleeve jersey" loading="lazy">
+          <div class="card-overlay">
+            <div class="card-overlay-content">
+              <div class="card-tags">
+                <span class="card-tag label-caps">Sublimation</span>
+                <span class="card-tag label-caps">Long Sleeve</span>
+              </div>
+              <h3 class="headline-md card-title">Honda Track Jersey</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 (Tokyo Dragon Polo) -->
+        <div class="gallery-card reveal" data-category="pattern">
+          <img src="New%20folder/POLO%20SHIRT/japan%20copy.jpeg" alt="Tokyo Dragon pattern sublimated polo shirt" loading="lazy">
+          <div class="card-overlay">
+            <div class="card-overlay-content">
+              <div class="card-tags">
+                <span class="card-tag label-caps">Pattern Design</span>
+                <span class="card-tag label-caps">Polo Shirt</span>
+              </div>
+              <h3 class="headline-md card-title">Tokyo Dragon Polo</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 (Ukiyo-e Wave Tee - Large Card) -->
+        <div class="gallery-card bento-colspan-2 reveal" data-category="pattern">
+          <img src="New%20folder/TSHIRT/japan%20tshirt%20copy.jpeg" alt="Ukiyo-e Wave graphic tee mockup" loading="lazy">
+          <div class="card-overlay">
+            <div class="card-overlay-content">
+              <div class="card-tags">
+                <span class="card-tag label-caps">Photoshop Mockup</span>
+                <span class="card-tag label-caps">Vector Pattern</span>
+                <span class="card-tag label-caps">T-Shirt</span>
+              </div>
+              <h3 class="headline-md card-title">Ukiyo-e Wave Graphic Tee</h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Experience / Process Timeline Section -->
+    <section class="section-padding process-section" id="process">
+      <div class="container process-layout">
+        
+        <!-- Left Side: Sticky Text -->
+        <div class="process-header-side reveal">
+          <p class="label-caps section-tag">Creative Process</p>
+          <h2 class="headline-lg">Bridging Design & Production</h2>
+          <p class="body-md text-on-surface-variant">
+            A precise, workflow-centered transition from creative layouts to flawless physical sublimation prints. Every vector, stroke, and gradient is structurally constructed for industrial-grade fabrication.
+          </p>
+        </div>
+
+        <!-- Right Side: Vertical Timeline -->
+        <div class="process-timeline-side reveal reveal-delay-1">
+          <div class="timeline">
+            <!-- Central Line -->
+            <div class="timeline-line"></div>
+
+            <!-- Stage 1 -->
+            <div class="timeline-item">
+              <div class="timeline-node">
+                <span class="timeline-dot"></span>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="material-symbols-outlined">draw</span>
+                  <h3 class="headline-md">1. Vector Construction</h3>
+                </div>
+                <p class="body-md">
+                  Designing mathematically precise patterns in Adobe Illustrator. Elements are strictly configured with color separations, clean intersections, and scalable outlines to prevent bleeding during thermal transfers.
+                </p>
+              </div>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="timeline-item">
+              <div class="timeline-node">
+                <span class="timeline-dot"></span>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="material-symbols-outlined">layers</span>
+                  <h3 class="headline-md">2. 3D & Flat Mockups</h3>
+                </div>
+                <p class="body-md">
+                  Mapping flat vectors onto high-fidelity apparel mockups in Adobe Photoshop. Generating photorealistic folds, material textures (mesh, Lycra, polyester), and highlights to review print sizes before fabric cuts.
+                </p>
+              </div>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="timeline-item">
+              <div class="timeline-node">
+                <span class="timeline-dot"></span>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="material-symbols-outlined">print</span>
+                  <h3 class="headline-md">3. Production Delivery</h3>
+                </div>
+                <p class="body-md">
+                  Exporting print-ready, high-resolution CMYK vector layouts. Files are formatted with appropriate bleeds, print marks, and custom scale measurements for heat-press printing machines.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding container" id="contact">
+      <div class="contact-container">
+        
+        <div class="section-header reveal">
+          <p class="label-caps section-tag">Get in Touch</p>
+          <h2 class="headline-lg">Let's discuss your next project</h2>
+          <p class="body-md">Tell me about your sublimation and sportswear design requirements.</p>
+        </div>
+
+        <div class="contact-card reveal">
+          <div class="contact-glow"></div>
+          
+          <form id="contact-form">
+            <div class="form-grid">
+              
+              <!-- Name Input -->
+              <div class="form-group">
+                <label for="contact-name" class="form-label label-caps">Your Name</label>
+                <input type="text" id="contact-name" class="form-input" placeholder="e.g., John Doe" required>
+                <span class="form-input-line"></span>
+              </div>
+
+              <!-- Email Input -->
+              <div class="form-group">
+                <label for="contact-email" class="form-label label-caps">Your Email</label>
+                <input type="email" id="contact-email" class="form-input" placeholder="e.g., john@company.com" required>
+                <span class="form-input-line"></span>
+              </div>
+
+            </div>
+
+            <!-- Project Details Textarea -->
+            <div class="form-group" style="margin-bottom: 40px;">
+              <label for="contact-message" class="form-label label-caps">Project Description</label>
+              <textarea id="contact-message" class="form-input" rows="4" placeholder="Briefly describe your design needs, deadlines, and print type..." required style="resize: none;"></textarea>
+              <span class="form-input-line"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary form-btn" id="contact-submit-btn">
+              Send Message
+              <span class="material-symbols-outlined">send</span>
+            </button>
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      
+      <!-- Brand details -->
+      <div class="footer-logo-side">
+        <a href="#" class="logo" style="margin-bottom: 8px;">
+          <img src="assets/logo.png" alt="Jeigh Design" class="logo-img">
+        </a>
+        <p class="copyright">Precision in sublimation & apparel design.</p>
+      </div>
+
+      <!-- Links -->
+      <div class="footer-links">
+        <a href="#about" class="footer-link">About</a>
+        <a href="works.html" class="footer-link">Works</a>
+        <a href="#process" class="footer-link">Process</a>
+        <a href="#contact" class="footer-link">Contact</a>
+      </div>
+
+      <!-- Copyright metadata -->
+      <div>
+        <p class="copyright">&copy; 2026 Jeigh Design. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Toast Notification Popup -->
+  <div class="toast glass-container" id="toast-notification">
+    <span class="material-symbols-outlined">check_circle</span>
+    <span class="body-md" id="toast-message" style="color: var(--color-on-surface); font-weight: 500;">Message sent successfully!</span>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
