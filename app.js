@@ -126,55 +126,23 @@ document.addEventListener('DOMContentLoaded', () => {
     revealObserver.observe(element);
   });
 
-  // Hero mockup scroll-rotate effect
-  const mockupFrame = document.getElementById('mockup-frame');
-  if (mockupFrame) {
-    window.addEventListener('scroll', () => {
-      const scrollPos = window.scrollY;
-      const rotation = Math.max(0, 10 - scrollPos * 0.04); // Rotate flat on scroll
-      const scale = Math.min(1, 0.95 + scrollPos * 0.0002);
-      mockupFrame.style.transform = `perspective(1000px) rotateX(${rotation}deg) scale(${scale})`;
+  // --- Hero 3D Circular Gallery (WebGL) ---
+  const circularGalleryElement = document.getElementById('circular-gallery');
+  if (circularGalleryElement) {
+    window.circularGalleryInstance = new CircularGallery(circularGalleryElement, {
+      items: [
+        { image: 'New folder/JERSEY BASKETBALL/SUPER ROOKIES CLUB copy.jpeg', text: 'Basketball Jersey' },
+        { image: 'New folder/LONG SLEEVES/HONDA copy.jpeg', text: 'Racing Long Sleeve' },
+        { image: 'New folder/POLO SHIRT/japan copy.jpeg', text: 'Tokyo Dragon Polo' },
+        { image: 'New folder/TSHIRT/japan tshirt copy.jpeg', text: 'Custom Graphic Tee' }
+      ],
+      bend: 1.5,
+      textColor: 'var(--color-on-background)',
+      borderRadius: 0.04,
+      font: 'bold 26px "Plus Jakarta Sans", sans-serif',
+      scrollSpeed: 2.5,
+      scrollEase: 0.06
     });
-  }
-
-  // --- Hero Slideshow Controller ---
-  const heroSlides = document.querySelectorAll('.hero-slideshow .slide');
-  const heroThumbs = document.querySelectorAll('.hero-thumbnails .thumb');
-  let currentSlideIndex = 0;
-  let slideshowInterval;
-
-  const showSlide = (index) => {
-    heroSlides.forEach(slide => slide.classList.remove('active'));
-    heroThumbs.forEach(thumb => thumb.classList.remove('active'));
-
-    if (heroSlides[index] && heroThumbs[index]) {
-      heroSlides[index].classList.add('active');
-      heroThumbs[index].classList.add('active');
-      currentSlideIndex = index;
-    }
-  };
-
-  const startSlideshow = () => {
-    slideshowInterval = setInterval(() => {
-      let nextIndex = (currentSlideIndex + 1) % heroSlides.length;
-      showSlide(nextIndex);
-    }, 4000);
-  };
-
-  const stopSlideshow = () => {
-    clearInterval(slideshowInterval);
-  };
-
-  if (heroSlides.length > 0 && heroThumbs.length > 0) {
-    heroThumbs.forEach((thumb, index) => {
-      thumb.addEventListener('click', () => {
-        stopSlideshow();
-        showSlide(index);
-        startSlideshow(); // restart interval
-      });
-    });
-
-    startSlideshow();
   }
 
   // --- Portfolio Filtering ---
