@@ -109,9 +109,21 @@
         <a href="#contact" class="btn btn-secondary" id="hero-btn-discuss">Discuss Project</a>
       </div>
 
-      <!-- Interactive 3D Circular Gallery (Replaces slideshow) -->
-      <div class="hero-gallery-container reveal reveal-delay-3" id="hero-gallery-container">
-        <div id="circular-gallery" class="circular-gallery"></div>
+      <!-- Floating Glassmorphic Mockup Container with Slideshow -->
+      <div class="hero-mockup-container reveal reveal-delay-3" id="mockup-frame">
+        <div class="hero-slideshow">
+          <img src="New%20folder/JERSEY%20BASKETBALL/SUPER%20ROOKIES%20CLUB%20copy.jpeg" class="slide active" alt="Featured basketball jersey design" loading="eager">
+          <img src="New%20folder/LONG%20SLEEVES/HONDA%20copy.jpeg" class="slide" alt="Featured racing long sleeve design" loading="lazy">
+          <img src="New%20folder/POLO%20SHIRT/japan%20copy.jpeg" class="slide" alt="Featured Tokyo dragon polo shirt design" loading="lazy">
+          <img src="New%20folder/TSHIRT/japan%20tshirt%20copy.jpeg" class="slide" alt="Featured Ukiyo-e wave custom graphic tee design" loading="lazy">
+        </div>
+        <!-- Miniature Thumbnail Indicator Navigation -->
+        <div class="hero-thumbnails">
+          <button class="thumb active" data-slide="0" style="background-image: url('New%20folder/JERSEY%20BASKETBALL/SUPER%20ROOKIES%20CLUB%20copy.jpeg');" aria-label="Show basketball jersey mockup"></button>
+          <button class="thumb" data-slide="1" style="background-image: url('New%20folder/LONG%20SLEEVES/HONDA%20copy.jpeg');" aria-label="Show long sleeve mockup"></button>
+          <button class="thumb" data-slide="2" style="background-image: url('New%20folder/POLO%20SHIRT/japan%20copy.jpeg');" aria-label="Show polo shirt mockup"></button>
+          <button class="thumb" data-slide="3" style="background-image: url('New%20folder/TSHIRT/japan%20tshirt%20copy.jpeg');" aria-label="Show custom tee mockup"></button>
+        </div>
       </div>
     </section>
 
@@ -455,11 +467,9 @@
   </div>
 
   <!-- JavaScript -->
-  <script src="ogl.umd.js?v=2"></script>
   <script src="borderglow.js"></script>
   <script src="dotfield.js"></script>
   <script src="textpressure.js"></script>
-  <script src="circulargallery.js?v=2"></script>
   <script src="app.js"></script>
 </body>
 </html>
