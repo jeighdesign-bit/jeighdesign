@@ -78,6 +78,9 @@
   <div class="bg-blob blob-secondary" id="blob-2"></div>
   <div class="bg-blob blob-tertiary" id="blob-3"></div>
 
+  <!-- Interactive Dot Field Background -->
+  <div id="dot-field-bg"></div>
+
   <!-- Main Content -->
   <main>
     
@@ -142,59 +145,71 @@
       <div class="bento-grid">
         
         <!-- Card 1 (Super Rookies Club - Large Card) -->
-        <div class="gallery-card bento-colspan-2 reveal" data-category="apparel">
-          <img src="New%20folder/JERSEY%20BASKETBALL/SUPER%20ROOKIES%20CLUB%20copy.jpeg" alt="Super Rookies Club Basketball Jersey Design" loading="lazy">
-          <div class="card-overlay">
-            <div class="card-overlay-content">
-              <div class="card-tags">
-                <span class="card-tag label-caps">Vector Art</span>
-                <span class="card-tag label-caps">Illustrator</span>
-                <span class="card-tag label-caps">Basketball</span>
+        <div class="gallery-card border-glow bento-colspan-2 reveal" data-category="apparel">
+          <span class="edge-light"></span>
+          <div class="border-glow-inner">
+            <img src="New%20folder/JERSEY%20BASKETBALL/SUPER%20ROOKIES%20CLUB%20copy.jpeg" alt="Super Rookies Club Basketball Jersey Design" loading="lazy">
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <div class="card-tags">
+                  <span class="card-tag label-caps">Vector Art</span>
+                  <span class="card-tag label-caps">Illustrator</span>
+                  <span class="card-tag label-caps">Basketball</span>
+                </div>
+                <h3 class="headline-md card-title">Super Rookies Club Jersey</h3>
               </div>
-              <h3 class="headline-md card-title">Super Rookies Club Jersey</h3>
             </div>
           </div>
         </div>
 
         <!-- Card 2 (Honda Track Sleeve) -->
-        <div class="gallery-card reveal" data-category="apparel">
-          <img src="New%20folder/LONG%20SLEEVES/HONDA%20copy.jpeg" alt="Honda Racing sublimated long sleeve jersey" loading="lazy">
-          <div class="card-overlay">
-            <div class="card-overlay-content">
-              <div class="card-tags">
-                <span class="card-tag label-caps">Sublimation</span>
-                <span class="card-tag label-caps">Long Sleeve</span>
+        <div class="gallery-card border-glow reveal" data-category="apparel">
+          <span class="edge-light"></span>
+          <div class="border-glow-inner">
+            <img src="New%20folder/LONG%20SLEEVES/HONDA%20copy.jpeg" alt="Honda Racing sublimated long sleeve jersey" loading="lazy">
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <div class="card-tags">
+                  <span class="card-tag label-caps">Sublimation</span>
+                  <span class="card-tag label-caps">Long Sleeve</span>
+                </div>
+                <h3 class="headline-md card-title">Honda Track Jersey</h3>
               </div>
-              <h3 class="headline-md card-title">Honda Track Jersey</h3>
             </div>
           </div>
         </div>
 
         <!-- Card 3 (Tokyo Dragon Polo) -->
-        <div class="gallery-card reveal" data-category="pattern">
-          <img src="New%20folder/POLO%20SHIRT/japan%20copy.jpeg" alt="Tokyo Dragon pattern sublimated polo shirt" loading="lazy">
-          <div class="card-overlay">
-            <div class="card-overlay-content">
-              <div class="card-tags">
-                <span class="card-tag label-caps">Pattern Design</span>
-                <span class="card-tag label-caps">Polo Shirt</span>
+        <div class="gallery-card border-glow reveal" data-category="pattern">
+          <span class="edge-light"></span>
+          <div class="border-glow-inner">
+            <img src="New%20folder/POLO%20SHIRT/japan%20copy.jpeg" alt="Tokyo Dragon pattern sublimated polo shirt" loading="lazy">
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <div class="card-tags">
+                  <span class="card-tag label-caps">Pattern Design</span>
+                  <span class="card-tag label-caps">Polo Shirt</span>
+                </div>
+                <h3 class="headline-md card-title">Tokyo Dragon Polo</h3>
               </div>
-              <h3 class="headline-md card-title">Tokyo Dragon Polo</h3>
             </div>
           </div>
         </div>
 
         <!-- Card 4 (Ukiyo-e Wave Tee - Large Card) -->
-        <div class="gallery-card bento-colspan-2 reveal" data-category="pattern">
-          <img src="New%20folder/TSHIRT/japan%20tshirt%20copy.jpeg" alt="Ukiyo-e Wave graphic tee mockup" loading="lazy">
-          <div class="card-overlay">
-            <div class="card-overlay-content">
-              <div class="card-tags">
-                <span class="card-tag label-caps">Photoshop Mockup</span>
-                <span class="card-tag label-caps">Vector Pattern</span>
-                <span class="card-tag label-caps">T-Shirt</span>
+        <div class="gallery-card border-glow bento-colspan-2 reveal" data-category="pattern">
+          <span class="edge-light"></span>
+          <div class="border-glow-inner">
+            <img src="New%20folder/TSHIRT/japan%20tshirt%20copy.jpeg" alt="Ukiyo-e Wave graphic tee mockup" loading="lazy">
+            <div class="card-overlay">
+              <div class="card-overlay-content">
+                <div class="card-tags">
+                  <span class="card-tag label-caps">Photoshop Mockup</span>
+                  <span class="card-tag label-caps">Vector Pattern</span>
+                  <span class="card-tag label-caps">T-Shirt</span>
+                </div>
+                <h3 class="headline-md card-title">Ukiyo-e Wave Graphic Tee</h3>
               </div>
-              <h3 class="headline-md card-title">Ukiyo-e Wave Graphic Tee</h3>
             </div>
           </div>
         </div>
@@ -371,42 +386,44 @@
           <p class="body-md">Tell me about your sublimation and sportswear design requirements.</p>
         </div>
 
-        <div class="contact-card reveal">
-          <div class="contact-glow"></div>
-          
-          <form id="contact-form">
-            <div class="form-grid">
-              
-              <!-- Name Input -->
-              <div class="form-group">
-                <label for="contact-name" class="form-label label-caps">Your Name</label>
-                <input type="text" id="contact-name" class="form-input" placeholder="e.g., John Doe" required>
+        <div class="contact-card border-glow reveal">
+          <span class="edge-light"></span>
+          <div class="border-glow-inner">
+            <div class="contact-glow"></div>
+            
+            <form id="contact-form">
+              <div class="form-grid">
+                
+                <!-- Name Input -->
+                <div class="form-group">
+                  <label for="contact-name" class="form-label label-caps">Your Name</label>
+                  <input type="text" id="contact-name" class="form-input" placeholder="e.g., John Doe" required>
+                  <span class="form-input-line"></span>
+                </div>
+  
+                <!-- Email Input -->
+                <div class="form-group">
+                  <label for="contact-email" class="form-label label-caps">Your Email</label>
+                  <input type="email" id="contact-email" class="form-input" placeholder="e.g., john@company.com" required>
+                  <span class="form-input-line"></span>
+                </div>
+  
+              </div>
+  
+              <!-- Project Details Textarea -->
+              <div class="form-group" style="margin-bottom: 40px;">
+                <label for="contact-message" class="form-label label-caps">Project Description</label>
+                <textarea id="contact-message" class="form-input" rows="4" placeholder="Briefly describe your design needs, deadlines, and print type..." required style="resize: none;"></textarea>
                 <span class="form-input-line"></span>
               </div>
-
-              <!-- Email Input -->
-              <div class="form-group">
-                <label for="contact-email" class="form-label label-caps">Your Email</label>
-                <input type="email" id="contact-email" class="form-input" placeholder="e.g., john@company.com" required>
-                <span class="form-input-line"></span>
-              </div>
-
-            </div>
-
-            <!-- Project Details Textarea -->
-            <div class="form-group" style="margin-bottom: 40px;">
-              <label for="contact-message" class="form-label label-caps">Project Description</label>
-              <textarea id="contact-message" class="form-input" rows="4" placeholder="Briefly describe your design needs, deadlines, and print type..." required style="resize: none;"></textarea>
-              <span class="form-input-line"></span>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary form-btn" id="contact-submit-btn">
-              Send Message
-              <span class="material-symbols-outlined">send</span>
-            </button>
-          </form>
-
+  
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary form-btn" id="contact-submit-btn">
+                Send Message
+                <span class="material-symbols-outlined">send</span>
+              </button>
+            </form>
+          </div>
         </div>
 
       </div>
@@ -450,6 +467,8 @@
   </div>
 
   <!-- JavaScript -->
+  <script src="borderglow.js"></script>
+  <script src="dotfield.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

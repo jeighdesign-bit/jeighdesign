@@ -251,6 +251,17 @@ button, input, textarea {
   left: -200px;
 }
 
+/* Interactive Dot Field Background */
+#dot-field-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 /* Glassmorphism containers */
 .glass-container {
   background-color: var(--color-glass-bg);
@@ -1571,3 +1582,245 @@ button, input, textarea {
 .reveal-delay-3 {
   transition-delay: 0.45s;
 }
+
+/* ============================================================ */
+/* BORDER GLOW INTERACTIVE STYLES                                */
+/* ============================================================ */
+
+.border-glow {
+  --edge-proximity: 0;
+  --cursor-angle: 45deg;
+  --edge-sensitivity: 30;
+  --color-sensitivity: calc(var(--edge-sensitivity) + 20);
+  --border-radius: var(--rounded-xl);
+  --glow-padding: 30px;
+  --cone-spread: 25;
+  --fill-opacity: 0.25;
+  --card-bg: var(--color-card-bg);
+
+  /* Adaptive gradients using site design system colors */
+  --color-1: var(--color-primary);
+  --color-2: var(--color-secondary);
+  --color-3: var(--color-primary-fixed-dim, #cabeff);
+
+  --gradient-one: radial-gradient(at 80% 55%, var(--color-1) 0px, transparent 50%);
+  --gradient-two: radial-gradient(at 69% 34%, var(--color-2) 0px, transparent 50%);
+  --gradient-three: radial-gradient(at 8% 6%, var(--color-3) 0px, transparent 50%);
+  --gradient-four: radial-gradient(at 41% 38%, var(--color-1) 0px, transparent 50%);
+  --gradient-five: radial-gradient(at 86% 85%, var(--color-2) 0px, transparent 50%);
+  --gradient-six: radial-gradient(at 82% 18%, var(--color-3) 0px, transparent 50%);
+  --gradient-seven: radial-gradient(at 51% 4%, var(--color-1) 0px, transparent 50%);
+  --gradient-base: linear-gradient(var(--color-1) 0 100%);
+
+  /* Default glow color (purple) */
+  --glow-color-hsl: 258, 67%, 55%;
+  --glow-color: hsl(var(--glow-color-hsl) / 100%);
+  --glow-color-60: hsl(var(--glow-color-hsl) / 60%);
+  --glow-color-50: hsl(var(--glow-color-hsl) / 50%);
+  --glow-color-40: hsl(var(--glow-color-hsl) / 40%);
+  --glow-color-30: hsl(var(--glow-color-hsl) / 30%);
+  --glow-color-20: hsl(var(--glow-color-hsl) / 20%);
+  --glow-color-10: hsl(var(--glow-color-hsl) / 10%);
+
+  position: relative;
+  border-radius: var(--border-radius);
+  isolation: isolate;
+  transform: translate3d(0, 0, 0.01px);
+  display: grid;
+  background: var(--card-bg);
+  overflow: visible !important; /* Allow the glow to spill out */
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+[data-theme="dark"] .border-glow {
+  --glow-color-hsl: 258, 100%, 78%;
+}
+
+.border-glow::before,
+.border-glow::after,
+.border-glow > .edge-light {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transition: opacity 0.25s ease-out;
+  z-index: -1;
+}
+
+.border-glow:not(:hover):not(.sweep-active)::before,
+.border-glow:not(:hover):not(.sweep-active)::after,
+.border-glow:not(:hover):not(.sweep-active) > .edge-light {
+  opacity: 0;
+  transition: opacity 0.75s ease-in-out;
+}
+
+/* Colored mesh-gradient border outline */
+.border-glow::before {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--card-bg) 0 100%) padding-box,
+    linear-gradient(rgb(255 255 255 / 0%) 0% 100%) border-box,
+    var(--gradient-one) border-box,
+    var(--gradient-two) border-box,
+    var(--gradient-three) border-box,
+    var(--gradient-four) border-box,
+    var(--gradient-five) border-box,
+    var(--gradient-six) border-box,
+    var(--gradient-seven) border-box,
+    var(--gradient-base) border-box;
+
+  opacity: calc((var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
+
+  mask-image:
+    conic-gradient(
+      from var(--cursor-angle) at center,
+      black calc(var(--cone-spread) * 1%),
+      transparent calc((var(--cone-spread) + 15) * 1%),
+      transparent calc((100 - var(--cone-spread) - 15) * 1%),
+      black calc((100 - var(--cone-spread)) * 1%
+    ));
+  -webkit-mask-image:
+    conic-gradient(
+      from var(--cursor-angle) at center,
+      black calc(var(--cone-spread) * 1%),
+      transparent calc((var(--cone-spread) + 15) * 1%),
+      transparent calc((100 - var(--cone-spread) - 15) * 1%),
+      black calc((100 - var(--cone-spread)) * 1%
+    ));
+}
+
+/* Colored mesh-gradient background overlay near edges */
+.border-glow::after {
+  border: 1px solid transparent;
+  background:
+    var(--gradient-one) padding-box,
+    var(--gradient-two) padding-box,
+    var(--gradient-three) padding-box,
+    var(--gradient-four) padding-box,
+    var(--gradient-five) padding-box,
+    var(--gradient-six) padding-box,
+    var(--gradient-seven) padding-box,
+    var(--gradient-base) padding-box;
+
+  mask-image:
+    linear-gradient(to bottom, black, black),
+    radial-gradient(ellipse at 50% 50%, black 40%, transparent 65%),
+    radial-gradient(ellipse at 66% 66%, black 5%, transparent 40%),
+    radial-gradient(ellipse at 33% 33%, black 5%, transparent 40%),
+    radial-gradient(ellipse at 66% 33%, black 5%, transparent 40%),
+    radial-gradient(ellipse at 33% 66%, black 5%, transparent 40%),
+    conic-gradient(from var(--cursor-angle) at center, transparent 5%, black 15%, black 85%, transparent 95%);
+  -webkit-mask-image:
+    linear-gradient(to bottom, black, black),
+    radial-gradient(ellipse at 50% 50%, black 40%, transparent 65%),
+    radial-gradient(ellipse at 66% 66%, black 5%, transparent 40%),
+    radial-gradient(ellipse at 33% 33%, black 5%, transparent 40%),
+    radial-gradient(ellipse at 66% 33%, black 5%, transparent 40%),
+    radial-gradient(ellipse at 33% 66%, black 5%, transparent 40%),
+    conic-gradient(from var(--cursor-angle) at center, transparent 5%, black 15%, black 85%, transparent 95%);
+
+  mask-composite: subtract, add, add, add, add, add;
+  -webkit-mask-composite: source-out, destination-over, destination-over, destination-over, destination-over, destination-over;
+  opacity: calc(var(--fill-opacity, 0.25) * (var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
+  mix-blend-mode: soft-light;
+}
+
+/* Outer glow trail */
+.border-glow > .edge-light {
+  inset: calc(var(--glow-padding) * -1);
+  pointer-events: none;
+  z-index: 1;
+
+  mask-image:
+    conic-gradient(
+      from var(--cursor-angle) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%
+    );
+  -webkit-mask-image:
+    conic-gradient(
+      from var(--cursor-angle) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%
+    );
+
+  opacity: calc((var(--edge-proximity) - var(--edge-sensitivity)) / (100 - var(--edge-sensitivity)));
+  mix-blend-mode: plus-lighter;
+}
+
+.border-glow > .edge-light::before {
+  content: "";
+  position: absolute;
+  inset: var(--glow-padding);
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px var(--glow-color),
+    inset 0 0 1px 0 var(--glow-color-60),
+    inset 0 0 3px 0 var(--glow-color-50),
+    inset 0 0 6px 0 var(--glow-color-40),
+    inset 0 0 15px 0 var(--glow-color-30),
+    inset 0 0 25px 2px var(--glow-color-20),
+    inset 0 0 50px 2px var(--glow-color-10),
+    0 0 1px 0 var(--glow-color-60),
+    0 0 3px 0 var(--glow-color-50),
+    0 0 6px 0 var(--glow-color-40),
+    0 0 15px 0 var(--glow-color-30),
+    0 0 25px 2px var(--glow-color-20),
+    0 0 50px 2px var(--glow-color-10);
+}
+
+.border-glow-inner {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: calc(var(--border-radius) - 1px);
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================================ */
+/* OVERRIDES FOR EXISTING CONTAINERS TO MERGE WITH BORDER GLOW  */
+/* ============================================================ */
+
+/* Gallery Bento Cards Overrides */
+.gallery-card.border-glow {
+  box-shadow: none !important;
+  aspect-ratio: auto !important;
+  background: var(--color-card-bg) !important;
+  border: 1px solid var(--color-card-border) !important;
+}
+
+.gallery-card.border-glow > .border-glow-inner {
+  aspect-ratio: 4/5;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .gallery-card.border-glow.bento-colspan-2 > .border-glow-inner {
+    aspect-ratio: 8/5;
+  }
+}
+
+/* Contact Card Overrides */
+.contact-card.border-glow {
+  padding: 0 !important;
+  background: var(--color-card-bg) !important;
+  border: 1px solid var(--color-card-border) !important;
+  box-shadow: 0 16px 40px rgba(94, 59, 219, 0.04) !important;
+  overflow: visible !important;
+}
+
+.contact-card.border-glow > .border-glow-inner {
+  padding: 40px 24px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+@media (min-width: 768px) {
+  .contact-card.border-glow > .border-glow-inner {
+    padding: 60px 80px;
+  }
+}
+

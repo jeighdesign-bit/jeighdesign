@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     activeItemsList.forEach((item, index) => {
       const card = document.createElement('div');
-      card.className = 'gallery-card reveal active';
+      card.className = 'gallery-card border-glow reveal active';
       card.setAttribute('data-category', item.category);
       
       // Make some cards span two columns for a visual bento grid layout
@@ -289,13 +289,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       card.innerHTML = `
-        <img src="${encodedPath}" alt="${item.title}" loading="lazy" decoding="async">
-        <div class="card-overlay">
-          <div class="card-overlay-content">
-            <div class="card-tags">
-              ${tagsHtml}
+        <span class="edge-light"></span>
+        <div class="border-glow-inner">
+          <img src="${encodedPath}" alt="${item.title}" loading="lazy" decoding="async">
+          <div class="card-overlay">
+            <div class="card-overlay-content">
+              <div class="card-tags">
+                ${tagsHtml}
+              </div>
+              <h3 class="headline-md card-title">${item.title}</h3>
             </div>
-            <h3 class="headline-md card-title">${item.title}</h3>
           </div>
         </div>
       `;
@@ -307,6 +310,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       worksGrid.appendChild(card);
     });
+
+    // Initialize BorderGlow pointer tracking on newly rendered elements
+    if (window.initBorderGlow) {
+      window.initBorderGlow();
+    }
   };
 
   // --- Lightbox Modal Manager ---

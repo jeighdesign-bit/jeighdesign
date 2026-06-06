@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     visibleProjects.forEach((project, idx) => {
       const card = document.createElement('div');
-      card.className = 'sc-card sc-fade-in reveal active';
+      card.className = 'sc-card border-glow sc-fade-in reveal active';
       card.style.animationDelay = `${idx * 0.06}s`;
       card.setAttribute('data-id', project.id);
 
@@ -188,28 +188,36 @@ document.addEventListener('DOMContentLoaded', () => {
       const encodedCover = encodeURI(project.coverImage);
 
       card.innerHTML = `
-        <div class="sc-card-image-wrap">
-          <img src="${encodedCover}" alt="${project.title}" loading="lazy" decoding="async">
-          ${imageCount > 1 ? `
-            <div class="sc-card-count">
-              <span class="material-symbols-outlined">photo_library</span>
-              ${imageCount} Photos
+        <span class="edge-light"></span>
+        <div class="border-glow-inner">
+          <div class="sc-card-image-wrap">
+            <img src="${encodedCover}" alt="${project.title}" loading="lazy" decoding="async">
+            ${imageCount > 1 ? `
+              <div class="sc-card-count">
+                <span class="material-symbols-outlined">photo_library</span>
+                ${imageCount} Photos
+              </div>
+            ` : ''}
+            <div class="sc-card-hover-label">
+              <span class="material-symbols-outlined" style="font-size:16px;">open_in_full</span>
+              View Project
             </div>
-          ` : ''}
-          <div class="sc-card-hover-label">
-            <span class="material-symbols-outlined" style="font-size:16px;">open_in_full</span>
-            View Project
           </div>
-        </div>
-        <div class="sc-card-body">
-          <span class="sc-card-category">${project.categoryLabel}</span>
-          <h3 class="sc-card-title">${project.title}</h3>
+          <div class="sc-card-body">
+            <span class="sc-card-category">${project.categoryLabel}</span>
+            <h3 class="sc-card-title">${project.title}</h3>
+          </div>
         </div>
       `;
 
       card.addEventListener('click', () => openModal(project));
       showcaseGrid.appendChild(card);
     });
+
+    // Initialize BorderGlow pointer tracking on newly rendered elements
+    if (window.initBorderGlow) {
+      window.initBorderGlow();
+    }
   };
 
   // ============================================================
