@@ -8,6 +8,15 @@ Design System: Lumina Creative (Visionary, Technical, Fluid)
 /* --- Google Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
+/* --- Variable Fonts --- */
+@font-face {
+  font-family: 'Compressa VF';
+  src: url('https://res.cloudinary.com/dr6lvwubh/raw/upload/v1529908256/CompressaPRO-GX.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 /* --- Custom Variables & Tokens --- */
 :root {
   /* Color Palette - Light Mode */
@@ -1822,5 +1831,24 @@ button, input, textarea {
   .contact-card.border-glow > .border-glow-inner {
     padding: 60px 80px;
   }
+}
+
+/* Text Pressure Animation Styles */
+.text-pressure {
+  font-family: 'Compressa VF', var(--font-display), sans-serif;
+  font-weight: 100;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.01em;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.text-pressure span {
+  display: inline-block;
+  font-family: inherit;
+  font-weight: inherit;
+  transition: opacity 0.2s ease;
 }
 
